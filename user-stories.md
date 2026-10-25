@@ -1,6 +1,5 @@
 # User Stories
 
-Format: As a [type of user], I want [goal], so that [reason or benefit].
 
 ### User Story 1
 As a primary care clinician at a low-prevalence screening clinic,  
