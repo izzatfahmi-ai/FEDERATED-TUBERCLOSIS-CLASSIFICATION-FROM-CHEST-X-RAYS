@@ -3,7 +3,7 @@
 ## Who is affected?
 Radiologists, doctors in rural clinics, hospital IT administrators, and Data Protection Officers attempting to deploy joint AI diagnostic systems.
 
-## What exactly is going wrong?
+## What exactly is going wrong? 
 Under Malaysia's Personal Data Protection Act (PDPA 2010), healthcare facilities cannot transfer raw patient Chest X-rays to central cloud servers. While Federated Learning (FedAvg) keeps patient data local. Real-world clinics handle diverse populations, creating severe Non-IID label distribution skew (8.3% to 25.0% active TB prevalence). This imbalance forces client models to generate conflicting gradient updates that cancel each other out when averaged at the central server.
 
 ## Why does it matter?
