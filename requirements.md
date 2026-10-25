@@ -1,13 +1,13 @@
 # Requirements
 
 ## Functional requirements (what the system must DO)
-1. The system shall split the training dataset across 3 simulated clinic nodes to mirror real-world class imbalance (8.3%, 16.7%, and 25.0% TB prevalence).
-2. The system shall adjust the local loss function directly on the client side before sending model updates to the server.
-3. The system shall aggregate local model weights at the central server using standard FedAvg without transferring any raw X-ray files.
-4. The system shall evaluate the trained global model on a separate, unseen test set of 600 Chest X-rays.
-5. The system shall calculate and display key diagnostic metrics: Active TB Sensitivity (Recall), False Negative Rate (FNR), Specificity, and AUROC.
+- **FR1:** The system shall partition the training dataset across 3 simulated client nodes to emulate Non-IID label distribution skew (Clinic A: 8.3%, Clinic B: 16.7%, Clinic C: 25.0% active TB prevalence).
+- **FR2:** The system shall apply Client-Side Localized Weighted Cross-Entropy Loss during local client training loops prior to model parameter transmission.
+- **FR3:** The system shall aggregate local client parameter weight updates at the central server using standard Federated Averaging (FedAvg) without transferring raw images.
+- **FR4:** The system shall perform binary classification (Normal vs. Active TB) on an unseen central evaluation dataset of 600 Chest X-ray images.
+- **FR5:** The system shall calculate and display key diagnostic metrics: Active TB Sensitivity (Recall), False Negative Rate (FNR), Specificity, and AUROC after each federation round.
 
 ## Non-functional requirements (how the system must PERFORM)
-1. The system shall maintain 100% compliance with PDPA 2010 by ensuring no raw patient images or personal identifiers ever leave local clinic nodes.
-2. The system shall achieve at least 85% Active TB Sensitivity on the global test set despite severe class imbalance across local nodes.
-3. The system shall complete a full federated training and evaluation run within 60 minutes on a standard GPU workstation.
+- **NFR1 (Privacy/Security):** The system shall maintain 100% compliance with statutory regulations under PDPA 2010 by ensuring zero raw patient Chest X-rays or personal identifiers leave local client nodes.
+- **NFR2 (Performance/Accuracy):** The system shall achieve an Active TB Sensitivity (Recall) score of at least 85.0% on the central test set under severe Non-IID label skew.
+- **NFR3 (Efficiency):** The system shall complete a full 20-round federated training and evaluation cycle in under 60 minutes on a single GPU workstation environment.
